@@ -1,24 +1,26 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, ArrowUpRight, Braces, Cloud, Globe2, MoveUpRight, Workflow } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ContactSection, DecorativeTerminal, Eyebrow, FAQ, pageMeta, PlaceholderQuotes, SectionTitle, ServiceSummary, Steps } from "@/components/marketing";
+import { projects } from "@/lib/noveltiq";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => pageMeta("Software, built with intention", "Noveltiq builds websites, custom software and cloud systems for ambitious businesses worldwide, remote-first since 2023."),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+function HomePage() {
+  return <main>
+    <section className="relative overflow-hidden border-b border-border"><div className="line-grid absolute inset-0 opacity-35 [mask-image:linear-gradient(to_bottom,black,transparent_88%)]"/><div className="shell relative pb-16 pt-20 md:pb-24 md:pt-28"><div className="fade-up max-w-4xl"><p className="eyebrow mb-6"><span className="mr-2 inline-block size-1.5 rounded-full bg-primary align-middle"/>Independent software studio · Remote-first since 2023</p><h1 className="text-5xl font-semibold leading-[1.05] text-foreground sm:text-6xl md:text-7xl">Software, built<br className="hidden sm:block"/> with <span className="text-primary">intention.</span></h1><p className="mt-7 max-w-xl text-base leading-7 text-muted-foreground md:text-lg">We build websites, tools and systems for businesses — from a first landing page to the backend that scales it.</p><div className="mt-9 flex flex-wrap gap-3"><Button asChild className="h-12 rounded-sm px-5"><Link to="/#contact">Start a project <ArrowUpRight /></Link></Button><Button asChild variant="outline" className="h-12 rounded-sm px-5"><Link to="/services">See what we build <ArrowRight /></Link></Button></div></div><div className="mt-16 grid gap-4 border-t border-border pt-5 md:grid-cols-[1fr_auto]"><p className="font-mono text-[10px] uppercase text-muted-foreground">Independent by design / focused on outcomes</p><p className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground"><span>01 / Web</span><span>02 / Software</span><span>03 / Cloud</span></p></div></div></section>
+    <section className="border-b border-border py-7"><div className="shell flex flex-col gap-4 md:flex-row md:items-center md:gap-12"><p className="shrink-0 font-mono text-[10px] uppercase text-muted-foreground">Built alongside</p><div className="grid flex-1 grid-cols-2 gap-3 sm:grid-cols-4"><span className="border border-border px-3 py-2 text-center font-mono text-xs text-muted-foreground">[ Client logo ]</span><span className="border border-border px-3 py-2 text-center font-mono text-xs text-muted-foreground">[ Client logo ]</span><span className="border border-border px-3 py-2 text-center font-mono text-xs text-muted-foreground">[ Client logo ]</span><span className="border border-border px-3 py-2 text-center font-mono text-xs text-muted-foreground">[ Client logo ]</span></div></div></section>
+    <section className="py-20 md:py-28"><div className="shell"><SectionTitle label="01 / What we build" title="The right work, done well." action={<Link to="/services" className="text-sm text-primary hover:text-foreground">Explore all services <MoveUpRight className="ml-1 inline size-4"/></Link>}/><ServiceSummary /></div></section>
+    <section className="border-y border-border bg-card/30 py-20 md:py-28"><div className="shell"><SectionTitle label="02 / How we work" title="Good work has a process."/><Steps /></div></section>
+    <section className="py-20 md:py-28"><div className="shell grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-center"><div><Eyebrow>03 / One team. Real accountability.</Eyebrow><h2 className="max-w-xl text-4xl font-semibold leading-tight text-foreground md:text-5xl">No handoffs.<br/>No lost-in-translation.</h2><p className="mt-6 max-w-lg leading-7 text-muted-foreground">The person who scopes your project is the person who builds it. You get direct access, thoughtful decisions and work that makes it out the door.</p><div className="mt-9 grid gap-5 sm:grid-cols-3">{[["01", "Built to ship", "The finish line stays in view."], ["02", "One team", "One accountable point of contact."], ["03", "Room to grow", "A solid foundation for what's next."]].map(([num, title, text])=><div key={num} className="border-t border-border pt-4"><span className="font-mono text-xs text-primary">{num}</span><h3 className="mt-3 text-sm font-medium text-foreground">{title}</h3><p className="mt-1 text-xs leading-5 text-muted-foreground">{text}</p></div>)}</div></div><DecorativeTerminal /></div></section>
+    <section className="border-y border-border bg-card/25 py-8"><div className="shell flex flex-wrap items-center justify-between gap-x-8 gap-y-4"><p className="font-mono text-[10px] uppercase text-muted-foreground">Tools we reach for</p>{["Python", "FastAPI", "React", "WordPress", "PostgreSQL", "Figma"].map((tool)=><span key={tool} className="font-mono text-xs text-muted-foreground">{tool}</span>)}</div></section>
+    <section className="py-20 md:py-28"><div className="shell"><SectionTitle label="04 / Selected words" title="Good work, good people."/><PlaceholderQuotes /></div></section>
+    <section className="border-t border-border bg-card/20 py-20 md:py-28"><div className="shell"><SectionTitle label="05 / A few questions" title="Before we get started."/><FAQ /></div></section>
+    <section className="py-20 md:py-28"><div className="shell"><div className="mb-8 flex items-end justify-between"><div><Eyebrow>06 / Selected work</Eyebrow><h2 className="text-3xl font-semibold text-foreground md:text-4xl">A glimpse of what’s possible.</h2></div><Link to="/work" className="text-sm text-primary">All work <ArrowRight className="ml-1 inline size-4"/></Link></div><div className="grid gap-4 sm:grid-cols-3">{projects.slice(0,3).map((project, i)=><Link key={project.slug} to="/work/$slug" params={{slug:project.slug}} className="group border border-border p-5 transition-colors hover:border-primary/50"><div className="mb-10 flex aspect-[1.8] items-center justify-center border border-border bg-card"><span className="font-mono text-xs text-muted-foreground">PROJECT / 0{i+1}</span></div><h3 className="font-medium text-foreground">{project.name}<MoveUpRight className="ml-1 inline size-4 text-primary"/></h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{project.text}</p><p className="mt-4 font-mono text-[10px] text-primary">PLACEHOLDER CASE STUDY</p></Link>)}</div></div></section>
+    <section className="border-y border-border bg-card/30 py-16"><div className="shell grid gap-8 md:grid-cols-[.8fr_1.2fr] md:items-center"><div><Eyebrow>07 / build.log</Eyebrow><h2 className="text-2xl font-semibold text-foreground">Notes from the work.</h2><Link to="/log" className="mt-4 inline-block text-sm text-primary">All updates <ArrowRight className="ml-1 inline size-4"/></Link></div><p className="max-w-xl text-sm leading-7 text-muted-foreground">Small observations on shipping useful software, thoughtful collaboration and the decisions that make good work last.</p></div></section>
+    <ContactSection />
+  </main>;
 }

@@ -1,0 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ContactSection, PageIntro, ServiceDetailGroups, pageMeta } from "@/components/marketing";
+export const Route = createFileRoute("/services")({ head: () => pageMeta("Services", "Websites, custom software and cloud engineering for ambitious businesses. Explore Noveltiq's full range of services."), component: ServicesPage });
+function ServicesPage() { return <main><PageIntro label="Services / what we do" title={<>Built around the work<br className="hidden sm:block"/> you need to do.</>} copy="The right tools, the right technical decisions and a team that stays accountable all the way through."/><ServiceDetailGroups/><ContactSection/></main>; }
