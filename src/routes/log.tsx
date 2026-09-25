@@ -1,0 +1,4 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ContactSection, BuildLog, PageIntro, pageMeta } from "@/components/marketing";
+export const Route = createFileRoute("/log")({ head: () => pageMeta("Build log", "Short notes from Noveltiq on shipping useful software, thoughtful collaboration and building with intention."), component: LogPage });
+function LogPage() { return <main><PageIntro label="build.log / notes from the work" title={<>Small updates.<br/>Ideas in progress.</>} copy="A lightweight record of what we’re thinking about, learning and building. Early entries are placeholders, ready to be replaced with real updates."/><section className="shell pb-20"><BuildLog/><p className="mt-6 font-mono text-xs text-muted-foreground">END OF CURRENT LOG <span className="text-primary">/</span> MORE SOON</p></section><ContactSection/></main>; }
