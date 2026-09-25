@@ -1,0 +1,3 @@
+- [ ] Build shared site shell, contact flow, homepage, and design system.
+- [ ] Add services, pricing, training, work/case study, about, log, privacy, and terms pages with unique metadata.
+- [ ] Add social preview/favicons, sitemap, and analytics placeholder; verify site and diagnostics.
