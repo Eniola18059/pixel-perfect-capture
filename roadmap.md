@@ -1,3 +1,4 @@
-- [ ] Build shared site shell, contact flow, homepage, and design system.
-- [ ] Add services, pricing, training, work/case study, about, log, privacy, and terms pages with unique metadata.
+- [x] Build shared site shell, contact flow, homepage, and design system.
+- [x] Add services, pricing, training, work/case study, about, log, privacy, and terms pages with unique metadata.
+- [x] Add branded studio and project imagery across key pages.
 - [ ] Add social preview/favicons, sitemap, and analytics placeholder; verify site and diagnostics.
