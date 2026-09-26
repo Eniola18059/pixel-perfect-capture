@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep project imagery attached to each project record in `src/lib/noveltiq.ts` so every project view stays visually consistent.

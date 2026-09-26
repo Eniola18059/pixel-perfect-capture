@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight, Check, ChevronDown, Code2, Cloud, Globe2, Lay
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { faqs, projects, services } from "@/lib/noveltiq";
-import workspaceImage from "@/assets/noveltiq-workspace.jpg";
 
 export function pageMeta(title: string, description: string) {
   return { meta: [
@@ -46,7 +45,7 @@ export function FAQ({ questions = faqs }: { questions?: readonly (readonly [stri
 }
 
 export function ProjectGrid() {
-  return <div className="shell grid gap-5 pb-24 sm:grid-cols-2 lg:grid-cols-3">{projects.map((project, i) => <Link key={project.slug} to="/work/$slug" params={{ slug: project.slug }} className="group border border-border bg-card/50 transition-colors hover:border-primary/50"><div className="relative aspect-[1.42] overflow-hidden border-b border-border bg-background"><img src={workspaceImage} alt="Placeholder product interface for case study" width={1440} height={960} loading="lazy" className="size-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-[1.035]" /><span className="absolute left-4 top-4 border border-border bg-background/90 px-2 py-1 font-mono text-[10px] text-primary">PLACEHOLDER {String(i + 1).padStart(2, "0")}</span></div><div className="p-5"><div className="flex items-center justify-between gap-4"><h2 className="font-semibold text-foreground">{project.name}</h2><MoveUpRight className="size-4 text-muted-foreground transition-colors group-hover:text-primary" /></div><p className="mt-2 text-sm leading-6 text-muted-foreground">{project.text}</p><div className="mt-5 flex gap-2">{project.tags.map((tag) => <span key={tag} className="border border-border px-2 py-1 font-mono text-[10px] text-muted-foreground">{tag}</span>)}</div></div></Link>)}</div>;
+  return <div className="shell grid gap-5 pb-24 sm:grid-cols-2 lg:grid-cols-3">{projects.map((project, i) => <Link key={project.slug} to="/work/$slug" params={{ slug: project.slug }} className="group overflow-hidden border border-border bg-card/50 transition-colors hover:border-primary/50"><div className="relative aspect-[1.42] overflow-hidden border-b border-border bg-background"><img src={project.image} alt={`${project.name} interface concept`} width={1536} height={1024} loading="lazy" className="size-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-[1.035]" /><span className="absolute left-4 top-4 border border-border bg-background/90 px-2 py-1 font-mono text-[10px] text-primary">CONCEPT {String(i + 1).padStart(2, "0")}</span></div><div className="p-5"><div className="flex items-center justify-between gap-4"><h2 className="font-semibold text-foreground">{project.name}</h2><MoveUpRight className="size-4 text-muted-foreground transition-colors group-hover:text-primary" /></div><p className="mt-2 text-sm leading-6 text-muted-foreground">{project.text}</p><div className="mt-5 flex gap-2">{project.tags.map((tag) => <span key={tag} className="border border-border px-2 py-1 font-mono text-[10px] text-muted-foreground">{tag}</span>)}</div></div></Link>)}</div>;
 }
 
 export function Steps() {
