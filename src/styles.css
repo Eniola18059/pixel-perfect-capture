@@ -156,4 +156,12 @@
 
 .fade-up { animation: fade-up 700ms cubic-bezier(.2,.7,.2,1) both; }
 @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-film video { animation: film-reveal 1.4s cubic-bezier(.2,.7,.2,1) both; }
+.signal-pulse { animation: signal-pulse 2.4s ease-in-out infinite; }
+.project-reveal { transform: translateZ(0); }
+.project-reveal img { filter: saturate(.86) contrast(1.04); }
+.project-reveal:hover img { filter: saturate(1) contrast(1.02); }
+@keyframes film-reveal { from { opacity: 0; transform: scale(1.035); } to { opacity: 1; transform: scale(1); } }
+@keyframes signal-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-primary) 0%, transparent); } 50% { box-shadow: 0 0 0 7px color-mix(in oklab, var(--color-primary) 0%, transparent); opacity: .62; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }

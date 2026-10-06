@@ -2,6 +2,9 @@ import commerceStudioImage from "@/assets/commerce-studio.jpg";
 import fieldnotesImage from "@/assets/fieldnotes.jpg";
 import northstarImage from "@/assets/northstar.jpg";
 import workspaceImage from "@/assets/noveltiq-workspace.jpg";
+import workbenchImage from "@/assets/workbench.jpg";
+import studioBookingImage from "@/assets/studio-booking.jpg";
+import goodgoodsImage from "@/assets/goodgoods.jpg";
 
 export const services = [
   {
@@ -83,9 +86,9 @@ export const projects = [
   { slug: "commerce-studio", name: "Commerce Studio", type: "E-commerce", text: "A placeholder storefront concept with a clean, direct path from discovery to checkout.", tags: ["E-commerce", "Web"], image: commerceStudioImage },
   { slug: "fieldnotes", name: "Fieldnotes", type: "Website", text: "A placeholder editorial website built to make publishing and reading feel effortless.", tags: ["Website", "Content"], image: fieldnotesImage },
   { slug: "northstar", name: "Northstar", type: "SaaS", text: "A placeholder SaaS product concept for bringing a team's everyday work into focus.", tags: ["SaaS", "Product"], image: northstarImage },
-  { slug: "workbench", name: "Workbench", type: "Web App", text: "A placeholder internal tool concept turning a scattered workflow into one clear view.", tags: ["Web App", "Dashboard"], image: workspaceImage },
-  { slug: "studio-booking", name: "Studio Booking", type: "Web App", text: "A placeholder booking experience designed to make finding a time feel simple.", tags: ["Web App", "Booking"], image: northstarImage },
-  { slug: "goodgoods", name: "Goodgoods", type: "E-commerce", text: "A placeholder product launch concept for a modern independent goods brand.", tags: ["E-commerce", "Brand"], image: commerceStudioImage },
+  { slug: "workbench", name: "Workbench", type: "Web App", text: "A placeholder internal tool concept turning a scattered workflow into one clear view.", tags: ["Web App", "Dashboard"], image: workbenchImage },
+  { slug: "studio-booking", name: "Studio Booking", type: "Web App", text: "A placeholder booking experience designed to make finding a time feel simple.", tags: ["Web App", "Booking"], image: studioBookingImage },
+  { slug: "goodgoods", name: "Goodgoods", type: "E-commerce", text: "A placeholder product launch concept for a modern independent goods brand.", tags: ["E-commerce", "Brand"], image: goodgoodsImage },
 ];
 
 export const projectBySlug = (slug: string) => projects.find((project) => project.slug === slug);
