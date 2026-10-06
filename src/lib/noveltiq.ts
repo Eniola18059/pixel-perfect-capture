@@ -1,7 +1,6 @@
 import commerceStudioImage from "@/assets/commerce-studio.jpg";
 import fieldnotesImage from "@/assets/fieldnotes.jpg";
 import northstarImage from "@/assets/northstar.jpg";
-import workspaceImage from "@/assets/noveltiq-workspace.jpg";
 import workbenchImage from "@/assets/workbench.jpg";
 import studioBookingImage from "@/assets/studio-booking.jpg";
 import goodgoodsImage from "@/assets/goodgoods.jpg";
