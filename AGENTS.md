@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 - Keep project imagery attached to each project record in `src/lib/noveltiq.ts` so every project view stays visually consistent.
+
+- Keep homepage cinematic behavior and technology presentation in `src/components/cinematic.tsx`; use CSS motion with reduced-motion support and video playback controls so movement remains lightweight and accessible.

@@ -2,4 +2,5 @@
 - [x] Add services, pricing, training, work/case study, about, log, privacy, and terms pages with unique metadata.
 - [x] Add branded studio and project imagery across key pages.
 - [x] Add premium motion, a cinematic homepage background, and unique imagery for every project.
-- [ ] Add social preview/favicons, sitemap, and analytics placeholder; verify site and diagnostics.
+- Deferred from the original brief (outside this motion update): social preview/favicons, sitemap and analytics placeholder.
+- [x] Add cinematic entrances, scroll reveals, controlled film movement and an expanded animated technology lineup; verify playback and reduced-motion behavior.
