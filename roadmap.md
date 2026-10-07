@@ -3,3 +3,4 @@
 - [x] Add branded studio and project imagery across key pages.
 - [x] Add premium motion, a cinematic homepage background, and unique imagery for every project.
 - [ ] Add social preview/favicons, sitemap, and analytics placeholder; verify site and diagnostics.
+- [ ] Add cinematic entrances, scroll reveals, controlled film movement and an expanded animated technology lineup; verify playback and reduced-motion behavior.
