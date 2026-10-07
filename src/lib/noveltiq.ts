@@ -46,7 +46,7 @@ export const services = [
   },
 ];
 
-export const faqs = [
+export const faqs: readonly (readonly [string, string])[] = [
   ["How long does a project take?", "A focused landing page can take a couple of weeks; larger websites and software take longer. After we understand the scope, we’ll share a realistic timeline before work begins."],
   ["Can you work with clients anywhere?", "Yes. We’re remote-first and work with businesses worldwide. Quotes can be discussed in USD, GBP or NGN, with the scope and milestones agreed clearly up front."],
   ["What do you need to get started?", "A short conversation about your goals, audience, timing and any references you like is enough. We’ll help shape the brief from there."],
@@ -54,7 +54,7 @@ export const faqs = [
   ["Can you take on a custom request?", "Often, yes. Tell us what you’re trying to solve. If it fits our experience, we’ll map out a sensible approach; if it doesn’t, we’ll be upfront."],
 ];
 
-export const pricing = [
+export const pricing: readonly (readonly [string, string, number | null])[] = [
   ["Consultation", "A focused technical conversation and clear next steps.", 25],
   ["Landing Page", "One purposeful page built around a clear offer.", 120],
   ["Portfolio Website", "A polished home for your work and point of view.", 90],
@@ -74,7 +74,7 @@ export const pricing = [
   ["Maintenance & Care Plan", "Ongoing attention to keep your site in good shape.", 35],
 ];
 
-export const training = [
+export const training: readonly (readonly [string, string, string, string])[] = [
   ["Coding Fundamentals", "A practical introduction to programming concepts, tools and how to build your first small projects.", "$60", "Move from curious beginner to confidently understanding the fundamentals."],
   ["1:1 Mentorship", "Regular sessions shaped around your goals, current projects and next steps as a developer.", "$90 / month", "A steady sounding board for your learning and the work you want to do."],
   ["Team Onboarding", "A hands-on session to help your team get up to speed with a codebase, tools or technical workflow.", "$40", "Get everyone aligned and moving with shared context."],

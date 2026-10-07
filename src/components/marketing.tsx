@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Check, ChevronDown, Code2, Cloud, Globe2, Layers3, MoveUpRight, Terminal } from "lucide-react";
+import { ArrowUpRight, Check, ChevronDown, Code2, Cloud, Globe2, MoveUpRight, Terminal, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { faqs, projects, services } from "@/lib/noveltiq";
@@ -32,8 +32,8 @@ export function ContactSection() {
 }
 
 export function ServiceSummary() {
-  const icons = [Globe2, Code2, Cloud];
-  return <div className="grid gap-px border border-border bg-border md:grid-cols-3">{services.map((service, index) => { const Icon = icons[index]; return <article key={service.number} className="group bg-background p-7 transition-colors hover:bg-card md:p-8"><div className="flex items-center justify-between"><Icon className="size-5 text-primary" /><span className="font-mono text-xs text-muted-foreground">{service.number}</span></div><h3 className="mt-9 text-xl font-semibold text-foreground">{service.name}<span className="ml-2 text-sm font-normal text-muted-foreground">/ {service.subtitle}</span></h3><p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">{service.description}</p><ul className="mt-6 space-y-2 border-t border-border pt-5">{service.items.slice(0, 4).map(([title]) => <li key={title} className="text-sm text-muted-foreground">{title}</li>)}</ul></article>; })}</div>;
+  const icons: LucideIcon[] = [Globe2, Code2, Cloud];
+  return <div className="grid gap-px border border-border bg-border md:grid-cols-3">{services.map((service, index) => { const Icon = icons[index] ?? Globe2; return <article key={service.number} className="group bg-background p-7 transition-colors hover:bg-card md:p-8"><div className="flex items-center justify-between"><Icon className="size-5 text-primary" /><span className="font-mono text-xs text-muted-foreground">{service.number}</span></div><h3 className="mt-9 text-xl font-semibold text-foreground">{service.name}<span className="ml-2 text-sm font-normal text-muted-foreground">/ {service.subtitle}</span></h3><p className="mt-3 min-h-14 text-sm leading-6 text-muted-foreground">{service.description}</p><ul className="mt-6 space-y-2 border-t border-border pt-5">{service.items.slice(0, 4).map(([title]) => <li key={title} className="text-sm text-muted-foreground">{title}</li>)}</ul></article>; })}</div>;
 }
 
 export function ServiceDetailGroups() {
