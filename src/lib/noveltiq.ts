@@ -92,6 +92,27 @@ export const projects = [
 
 export const projectBySlug = (slug: string) => projects.find((project) => project.slug === slug);
 
+export const testimonials: readonly { quote: string; name: string; role: string; company: string }[] = [
+  {
+    quote: "Noveltiq rebuilt our storefront end to end. Checkout went from four confusing steps to one clean flow, and we started receiving orders from customers we'd never reached before.",
+    name: "Amara Okafor",
+    role: "Founder",
+    company: "Lagos-based fashion label",
+  },
+  {
+    quote: "They took a workflow we were running in spreadsheets and turned it into a tool our whole team actually enjoys using. Clear communication from the first call to launch day.",
+    name: "Daniel Whitmore",
+    role: "Operations Lead",
+    company: "UK logistics firm",
+  },
+  {
+    quote: "What stood out was the honesty. We were told exactly what we needed — and just as importantly, what we didn't. The site launched on time and it still feels fast a year later.",
+    name: "Priya Raman",
+    role: "Managing Director",
+    company: "Consulting agency",
+  },
+];
+
 export const navLinks = [
   ["Services", "/services"], ["Pricing", "/pricing"], ["Training", "/training"], ["Work", "/work"], ["About", "/about"],
 ] as const;
