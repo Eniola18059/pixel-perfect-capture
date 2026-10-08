@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactSection, DecorativeTerminal, Eyebrow, FAQ, pageMeta, PlaceholderQuotes, SectionTitle, ServiceSummary, Steps } from "@/components/marketing";
 import { projects } from "@/lib/noveltiq";
-import { CinematicBackdrop, CinematicMotion, TechnologyStack } from "@/components/cinematic";
+import { CinematicBackdrop, CinematicMotion, CinematicProjectReel, TechnologyStack } from "@/components/cinematic";
 
 export const Route = createFileRoute("/")({
   head: () => pageMeta("Software, built with intention", "Noveltiq builds websites, custom software and cloud systems for ambitious businesses worldwide, remote-first since 2023."),
@@ -18,6 +18,7 @@ function HomePage() {
     <section className="py-20 md:py-28"><div className="shell"><SectionTitle label="01 / What we build" title="The right work, done well." action={<Link to="/services" className="text-sm text-primary hover:text-foreground">Explore all services <MoveUpRight className="ml-1 inline size-4"/></Link>}/><ServiceSummary /></div></section>
     <section className="border-y border-border bg-card/30 py-20 md:py-28"><div className="shell"><SectionTitle label="02 / How we work" title="Good work has a process."/><Steps /></div></section>
     <section className="py-20 md:py-28"><div className="shell grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-center"><div><Eyebrow>03 / One team. Real accountability.</Eyebrow><h2 className="max-w-xl text-4xl font-semibold leading-tight text-foreground md:text-5xl">No handoffs.<br/>No lost-in-translation.</h2><p className="mt-6 max-w-lg leading-7 text-muted-foreground">The person who scopes your project is the person who builds it. You get direct access, thoughtful decisions and work that makes it out the door.</p><div className="mt-9 grid gap-5 sm:grid-cols-3">{[["01", "Built to ship", "The finish line stays in view."], ["02", "One team", "One accountable point of contact."], ["03", "Room to grow", "A solid foundation for what's next."]].map(([num, title, text])=><div key={num} className="border-t border-border pt-4"><span className="font-mono text-xs text-primary">{num}</span><h3 className="mt-3 text-sm font-medium text-foreground">{title}</h3><p className="mt-1 text-xs leading-5 text-muted-foreground">{text}</p></div>)}</div></div><DecorativeTerminal /></div></section>
+    <CinematicProjectReel />
     <TechnologyStack />
     <section className="py-20 md:py-28"><div className="shell"><SectionTitle label="04 / Selected words" title="Good work, good people."/><PlaceholderQuotes /></div></section>
     <section className="border-t border-border bg-card/20 py-20 md:py-28"><div className="shell"><SectionTitle label="05 / A few questions" title="Before we get started."/><FAQ /></div></section>
