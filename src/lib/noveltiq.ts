@@ -4,11 +4,18 @@ import northstarImage from "@/assets/northstar.jpg";
 import workbenchImage from "@/assets/workbench.jpg";
 import studioBookingImage from "@/assets/studio-booking.jpg";
 import goodgoodsImage from "@/assets/goodgoods.jpg";
+import serviceWebImage from "@/assets/service-web.jpg";
+import serviceSoftwareImage from "@/assets/service-software.jpg";
+import serviceCloudImage from "@/assets/service-cloud.jpg";
+import trainingDeskImage from "@/assets/training-desk.jpg";
+
+export const trainingImage = trainingDeskImage;
 
 export const services = [
   {
     number: "01",
     name: "Web",
+    image: serviceWebImage,
     subtitle: "Sites & storefronts",
     description: "Fast, considered digital storefronts built to turn a first impression into a real conversation.",
     items: [
@@ -22,6 +29,7 @@ export const services = [
   {
     number: "02",
     name: "Software",
+    image: serviceSoftwareImage,
     subtitle: "Applications & systems",
     description: "Purpose-built software that makes complicated work simpler and gives good ideas room to scale.",
     items: [
@@ -34,6 +42,7 @@ export const services = [
   {
     number: "03",
     name: "Cloud",
+    image: serviceCloudImage,
     subtitle: "Infrastructure & scale",
     description: "The behind-the-scenes engineering that makes digital products more capable, reliable and resilient.",
     items: [
