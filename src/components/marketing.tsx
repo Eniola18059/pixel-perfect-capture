@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, ChevronDown, Code2, Cloud, Globe2, MoveUpRight, Terminal, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { faqs, projects, services } from "@/lib/noveltiq";
+import { faqs, projects, services, testimonials } from "@/lib/noveltiq";
 
 export function pageMeta(title: string, description: string) {
   return { meta: [
@@ -54,7 +54,7 @@ export function Steps() {
 }
 
 export function PlaceholderQuotes() {
-  return <div className="grid gap-4 md:grid-cols-3">{[1, 2, 3].map((id) => <blockquote key={id} className="border border-border bg-card/40 p-6"><p className="font-mono text-[10px] text-primary">CLIENT TESTIMONIAL / PLACEHOLDER</p><p className="mt-7 text-sm leading-6 text-muted-foreground">“Client feedback will appear here once a project is ready to share.”</p><footer className="mt-6 border-t border-border pt-4 text-sm text-foreground">Client name <span className="block pt-1 text-xs text-muted-foreground">Company name</span></footer></blockquote>)}</div>;
+  return <div className="grid gap-4 md:grid-cols-3">{testimonials.map((testimonial) => <blockquote key={testimonial.name} className="flex flex-col border border-border bg-card/40 p-6 transition-colors hover:border-primary/40"><p className="font-mono text-[10px] text-primary">CLIENT TESTIMONIAL / SAMPLE</p><p className="mt-7 flex-1 text-sm leading-6 text-muted-foreground">“{testimonial.quote}”</p><footer className="mt-6 border-t border-border pt-4 text-sm text-foreground">{testimonial.name}<span className="block pt-1 text-xs text-muted-foreground">{testimonial.role}, {testimonial.company}</span></footer></blockquote>)}</div>;
 }
 
 export function BuildLog({ compact = false }: { compact?: boolean }) {
