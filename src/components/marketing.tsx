@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, ChevronDown, Code2, Cloud, Globe2, MoveUpRight, Terminal, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { faqs, projects, services } from "@/lib/noveltiq";
+import { faqs, projects, services, testimonials } from "@/lib/noveltiq";
 
 export function pageMeta(title: string, description: string) {
   return { meta: [
