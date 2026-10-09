@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { projects } from "@/lib/noveltiq";
 import studioImage from "@/assets/noveltiq-studio.jpg";
 import heroVideo from "@/assets/noveltiq-hero.mp4";
+import heroWebm from "@/assets/noveltiq-hero.webm";
 
 export function CinematicMotion() {
   useEffect(() => {
@@ -65,7 +66,7 @@ export function CinematicBackdrop() {
     else { element.pause(); setPaused(true); }
   };
   return <>
-    <div className="cinema-camera absolute inset-0"><div className="cinema-drift absolute inset-0"><video ref={video} muted loop playsInline poster={studioImage} aria-hidden="true" className="absolute inset-0 size-full object-cover object-center md:object-right"><source src={heroVideo} type="video/mp4" /></video></div></div>
+    <div className="cinema-camera absolute inset-0"><div className="cinema-drift absolute inset-0"><video ref={video} muted loop playsInline poster={studioImage} aria-hidden="true" className="absolute inset-0 size-full object-cover object-center md:object-right"><source src={heroWebm} type="video/webm" /><source src={heroVideo} type="video/mp4" /></video></div></div>
     <div className="cinema-scan pointer-events-none absolute inset-0" aria-hidden="true" />
     <div className="cinema-shutter pointer-events-none absolute inset-0" aria-hidden="true" />
     <Button type="button" size="icon" variant="outline" onClick={toggle} aria-label={paused ? "Play background film" : "Pause background film"} title={paused ? "Resume website motion" : "Pause website motion"} className="absolute bottom-24 right-6 z-20 size-9 rounded-full bg-background/60 backdrop-blur-md md:right-10">{paused ? <Play className="size-3.5" /> : <Pause className="size-3.5" />}</Button>
