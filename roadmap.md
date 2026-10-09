@@ -4,4 +4,5 @@
 - [x] Add premium motion, a cinematic homepage background, and unique imagery for every project.
 - Deferred from the original brief (outside this motion update): social preview/favicons, sitemap and analytics placeholder.
 - [x] Add cinematic entrances, scroll reveals, controlled film movement and an expanded animated technology lineup; verify playback and reduced-motion behavior.
-- [ ] Add an animated project filmstrip, image wipes, layered camera movement and coordinated motion controls; verify the experience.
+- [x] Add an animated project filmstrip, image wipes, layered camera movement and coordinated motion controls; verify the experience.
+- [x] Remove the homepage Built alongside section and client-logo placeholders.
