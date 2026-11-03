@@ -2,7 +2,12 @@
 - [x] Add services, pricing, training, work/case study, about, log, privacy, and terms pages with unique metadata.
 - [x] Add branded studio and project imagery across key pages.
 - [x] Add premium motion, a cinematic homepage background, and unique imagery for every project.
-- Deferred from the original brief (outside this motion update): social preview/favicons, sitemap and analytics placeholder.
 - [x] Add cinematic entrances, scroll reveals, controlled film movement and an expanded animated technology lineup; verify playback and reduced-motion behavior.
 - [x] Add an animated project filmstrip, image wipes, layered camera movement and coordinated motion controls; verify the experience.
 - [x] Remove the homepage Built alongside section and client-logo placeholders.
+- [ ] Add a branded preloader.
+- [ ] Add live client work (WILLNET, BMC 2026, Sea-Blue Hills) with in-site previews that never link out to the live sites.
+- [ ] Launch polish: real favicon, social preview image, sitemap.
+- [ ] Homepage extras: animated studio stats, hero cursor glow and magnetic buttons.
+- [ ] Rewrite About around the team instead of one named person.
+- [ ] Booking link for scheduling calls — blocked: needs the studio's booking page URL.

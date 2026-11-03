@@ -8,6 +8,15 @@ import serviceWebImage from "@/assets/service-web.jpg";
 import serviceSoftwareImage from "@/assets/service-software.jpg";
 import serviceCloudImage from "@/assets/service-cloud.jpg";
 import trainingDeskImage from "@/assets/training-desk.jpg";
+import willnetCover from "@/assets/live/willnet-cover.jpg";
+import willnetDesktop from "@/assets/live/willnet-desktop.jpg";
+import willnetMobile from "@/assets/live/willnet-mobile.jpg";
+import eventbmcCover from "@/assets/live/eventbmc-cover.jpg";
+import eventbmcDesktop from "@/assets/live/eventbmc-desktop.jpg";
+import eventbmcMobile from "@/assets/live/eventbmc-mobile.jpg";
+import seabluehillsCover from "@/assets/live/seabluehills-cover.jpg";
+import seabluehillsDesktop from "@/assets/live/seabluehills-desktop.jpg";
+import seabluehillsMobile from "@/assets/live/seabluehills-mobile.jpg";
 
 export const trainingImage = trainingDeskImage;
 
@@ -90,7 +99,46 @@ export const training: readonly (readonly [string, string, string, string])[] = 
   ["Custom Curriculum", "A learning plan designed around your team, timeline and the skills you want to build.", "Custom quote", "A practical path with content that fits your real work."],
 ];
 
-export const projects = [
+export type LivePreview = { domain: string; desktop: string; mobile: string };
+export type Project = {
+  slug: string; name: string; type: string; text: string; tags: readonly string[]; image: string;
+  live?: LivePreview; client?: string; location?: string; notes?: readonly (readonly [string, string])[];
+};
+
+export const projects: readonly Project[] = [
+  {
+    slug: "willnet", name: "WILLNET", type: "Community website", client: "Women in Learning and Leadership Network", location: "Canada · Global",
+    text: "A warm, editorial home for a global community helping women grow in leadership, careers and business.",
+    tags: ["Website", "Community"], image: willnetCover,
+    live: { domain: "willnet.ca", desktop: willnetDesktop, mobile: willnetMobile },
+    notes: [
+      ["01 / The brief", "Give a growing leadership community a home that feels personal, credible and welcoming to women at every stage — from emerging leaders to established founders."],
+      ["02 / What we built", "A multi-page website with clear starting points for each audience, interactive “told vs. shown” cards, programme and membership pages, and a calm editorial design that lets the stories lead."],
+      ["03 / Experience", "Soft motion, considered typography and a mobile-first layout so joining the community feels as easy on a phone as on a laptop."],
+    ],
+  },
+  {
+    slug: "bmc-2026", name: "BMC 2026", type: "Event platform", client: "Billionaire Mindset Conference", location: "Lagos, Nigeria",
+    text: "The launch site for Africa’s largest business storytelling conference — programme, speakers, sponsors and registration in one place.",
+    tags: ["Event", "Web"], image: eventbmcCover,
+    live: { domain: "eventbmc.com.ng", desktop: eventbmcDesktop, mobile: eventbmcMobile },
+    notes: [
+      ["01 / The brief", "Turn a high-energy conference into a site that sells the room: who’s speaking, what attendees will learn and why sponsors should be part of it."],
+      ["02 / What we built", "A bold event website with a live countdown, add-to-calendar links, speaker highlights, a pitch-fund story, sponsor pathways and a clear registration flow."],
+      ["03 / Experience", "Fast, punchy and built for mobile sharing, so every visit has an obvious next step — register, sponsor or see the programme."],
+    ],
+  },
+  {
+    slug: "sea-blue-hills", name: "Sea-Blue Hills", type: "Corporate website", client: "Sea-Blue Hills Multi-Concept", location: "Nigeria",
+    text: "A confident corporate presence for an integrated engineering, procurement and supply chain partner.",
+    tags: ["Website", "Corporate"], image: seabluehillsCover,
+    live: { domain: "seabluehills.com.ng", desktop: seabluehillsDesktop, mobile: seabluehillsMobile },
+    notes: [
+      ["01 / The brief", "Present a multi-discipline engineering firm with the authority of a much larger company, and make it simple for serious clients to start a conversation."],
+      ["02 / What we built", "A structured corporate site covering core service areas, a step-by-step delivery process, projects in the pipeline, FAQs and direct WhatsApp, phone and email contact."],
+      ["03 / Experience", "A dark, industrial design language with strong headlines and quiet motion that keeps the focus on capability and trust."],
+    ],
+  },
   { slug: "commerce-studio", name: "Commerce Studio", type: "E-commerce", text: "A placeholder storefront concept with a clean, direct path from discovery to checkout.", tags: ["E-commerce", "Web"], image: commerceStudioImage },
   { slug: "fieldnotes", name: "Fieldnotes", type: "Website", text: "A placeholder editorial website built to make publishing and reading feel effortless.", tags: ["Website", "Content"], image: fieldnotesImage },
   { slug: "northstar", name: "Northstar", type: "SaaS", text: "A placeholder SaaS product concept for bringing a team's everyday work into focus.", tags: ["SaaS", "Product"], image: northstarImage },
@@ -100,6 +148,14 @@ export const projects = [
 ];
 
 export const projectBySlug = (slug: string) => projects.find((project) => project.slug === slug);
+export const liveProjects = projects.filter((project) => project.live);
+
+export const studioStats: readonly { value: number; suffix: string; label: string }[] = [
+  { value: liveProjects.length, suffix: "", label: "Live client launches" },
+  { value: 2, suffix: "", label: "Countries served" },
+  { value: 3, suffix: "", label: "Core disciplines" },
+  { value: 15, suffix: "+", label: "Technologies in our stack" },
+];
 
 export const testimonials: readonly { quote: string; name: string; role: string; company: string }[] = [
   {

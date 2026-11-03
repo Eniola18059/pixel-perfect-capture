@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Braces, Cloud, Code2, Database, Figma, Globe2, Layers, Pause, Play, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/lib/noveltiq";
+import { projects, studioStats } from "@/lib/noveltiq";
 import studioImage from "@/assets/noveltiq-studio.jpg";
 import heroVideo from "@/assets/noveltiq-hero.mp4";
 import heroWebm from "@/assets/noveltiq-hero.webm";
@@ -74,17 +74,85 @@ export function CinematicBackdrop() {
 }
 
 export function CinematicProjectReel() {
-  return <section className="project-filmstrip overflow-hidden border-b border-border py-8 md:py-12" aria-label="Noveltiq project concepts">
+  return <section className="project-filmstrip overflow-hidden border-b border-border py-8 md:py-12" aria-label="Noveltiq projects">
     <div className="shell mb-5 flex items-center justify-between gap-4"><p className="eyebrow">Noveltiq / In frame</p><Link to="/work" className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary">Selected work ↗</Link></div>
     <div className="project-film-track">
       {[0, 1].map((copy) => <div key={copy} className="project-film-copy" aria-hidden={copy === 1 ? true : undefined}>
         {projects.map((project, index) => <Link key={project.slug} to="/work/$slug" params={{ slug: project.slug }} tabIndex={copy === 1 ? -1 : undefined} className="project-film-frame group relative block overflow-hidden bg-card">
-          <img src={project.image} alt={copy === 0 ? `${project.name} concept` : ""} width={1536} height={1024} loading="lazy" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src={project.image} alt={copy === 0 ? `${project.name} ${project.live ? "website" : "concept"}` : ""} width={1536} height={1024} loading="lazy" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-background/95 to-transparent px-5 pb-4 pt-12"><span className="text-sm font-medium text-foreground">{project.name}</span><span className="font-mono text-[10px] text-primary">0{index + 1}</span></div>
         </Link>)}
       </div>)}
     </div>
   </section>;
+}
+
+/** Pointer-following glow and magnetic `.magnetic` actions inside the hero (fine pointers only). */
+export function HeroPointer() {
+  const glow = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const hero = glow.current?.closest<HTMLElement>(".hero-film");
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!hero || !fine.matches) return;
+    const magnets = Array.from(hero.querySelectorAll<HTMLElement>(".magnetic"));
+    let frame = 0;
+    let point = { x: 0, y: 0 };
+    const paused = () => reduce.matches || hero.closest("main")?.classList.contains("motion-paused");
+    const update = () => {
+      frame = 0;
+      if (paused()) { magnets.forEach((magnet) => { magnet.style.transform = ""; }); return; }
+      const box = hero.getBoundingClientRect();
+      hero.style.setProperty("--pointer-x", `${point.x - box.left}px`);
+      hero.style.setProperty("--pointer-y", `${point.y - box.top}px`);
+      magnets.forEach((magnet) => {
+        const rect = magnet.getBoundingClientRect();
+        const dx = point.x - (rect.left + rect.width / 2);
+        const dy = point.y - (rect.top + rect.height / 2);
+        const near = Math.hypot(dx, dy) < Math.max(rect.width, 120);
+        magnet.style.transform = near ? `translate(${dx * 0.22}px, ${dy * 0.3}px)` : "";
+      });
+    };
+    const move = (event: PointerEvent) => { point = { x: event.clientX, y: event.clientY }; if (!frame) frame = requestAnimationFrame(update); };
+    const leave = () => magnets.forEach((magnet) => { magnet.style.transform = ""; });
+    hero.addEventListener("pointermove", move);
+    hero.addEventListener("pointerleave", leave);
+    return () => { cancelAnimationFrame(frame); hero.removeEventListener("pointermove", move); hero.removeEventListener("pointerleave", leave); leave(); };
+  }, []);
+  return <div ref={glow} className="hero-glow" aria-hidden="true" />;
+}
+
+/** Studio numbers that count up the first time they scroll into view. */
+export function StudioStats() {
+  return <section className="border-b border-border py-14 md:py-16" aria-label="Noveltiq in numbers">
+    <div className="shell grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4">
+      {studioStats.map((stat) => <div key={stat.label} className="bg-background p-6 md:p-8"><p className="text-4xl font-semibold text-foreground md:text-5xl"><CountUp value={stat.value} /><span className="text-primary">{stat.suffix}</span></p><p className="mt-3 font-mono text-[10px] uppercase text-muted-foreground">{stat.label}</p></div>)}
+    </div>
+  </section>;
+}
+
+function CountUp({ value }: { value: number }) {
+  const node = useRef<HTMLSpanElement>(null);
+  const [shown, setShown] = useState(value);
+  useEffect(() => {
+    const element = node.current;
+    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return;
+      observer.disconnect();
+      const start = performance.now();
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / 1400, 1);
+        setShown(Math.round((1 - Math.pow(1 - progress, 3)) * value));
+        if (progress < 1) frame = requestAnimationFrame(tick);
+      };
+      setShown(0); frame = requestAnimationFrame(tick);
+    }, { threshold: 0.6 });
+    observer.observe(element);
+    return () => { observer.disconnect(); cancelAnimationFrame(frame); };
+  }, [value]);
+  return <span ref={node} className="tabular-nums">{shown}</span>;
 }
 
 const stack = [

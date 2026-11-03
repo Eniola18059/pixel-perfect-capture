@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://pixel-perfect-capture-7641.lovable.app/sitemap.xml

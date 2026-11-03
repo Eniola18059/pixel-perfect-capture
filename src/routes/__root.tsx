@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Menu } from "lucide-react";
 import { navLinks } from "@/lib/noveltiq";
+import { Preloader } from "@/components/preloader";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -89,7 +90,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Websites, custom software and cloud systems, built with intention." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -128,6 +128,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Preloader />
       <SiteHeader />
       <Outlet />
       <SiteFooter />
