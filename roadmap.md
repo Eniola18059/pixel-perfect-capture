@@ -5,9 +5,9 @@
 - [x] Add cinematic entrances, scroll reveals, controlled film movement and an expanded animated technology lineup; verify playback and reduced-motion behavior.
 - [x] Add an animated project filmstrip, image wipes, layered camera movement and coordinated motion controls; verify the experience.
 - [x] Remove the homepage Built alongside section and client-logo placeholders.
-- [ ] Add a branded preloader.
-- [ ] Add live client work (WILLNET, BMC 2026, Sea-Blue Hills) with in-site previews that never link out to the live sites.
-- [ ] Launch polish: real favicon, social preview image, sitemap.
-- [ ] Homepage extras: animated studio stats, hero cursor glow and magnetic buttons.
-- [ ] Rewrite About around the team instead of one named person.
+- [x] Add a branded preloader.
+- [x] Add live client work (WILLNET, BMC 2026, Sea-Blue Hills) with in-site previews that never link out to the live sites.
+- [x] Launch polish: real favicon, social preview image, sitemap.
+- [x] Homepage extras: animated studio stats, hero cursor glow and magnetic buttons.
+- [x] Rewrite About around the team instead of one named person.
 - [ ] Booking link for scheduling calls — blocked: needs the studio's booking page URL.
