@@ -99,6 +99,81 @@ export const training: readonly (readonly [string, string, string, string])[] = 
   ["Custom Curriculum", "A learning plan designed around your team, timeline and the skills you want to build.", "Custom quote", "A practical path with content that fits your real work."],
 ];
 
+export const estimateBaseNames = ["Landing Page", "Business Website", "E-commerce / Ordering", "Custom Web Application"] as const;
+export const estimateAddOnNames = ["Payment Integration", "Booking & Appointments", "Web Scraping & Data"] as const;
+
+export const industries = [
+  {
+    slug: "events",
+    name: "Events & conferences",
+    title: "A digital front door for your next event.",
+    summary: "Give attendees, speakers and sponsors one clear place to understand the event and take their next step.",
+    image: eventbmcCover,
+    projectSlug: "bmc-2026",
+    audience: "Conferences, summits and event teams",
+    needs: ["An event story and programme visitors can scan quickly", "Clear paths for registration, speakers and sponsors", "A mobile-first experience designed for sharing"],
+  },
+  {
+    slug: "engineering",
+    name: "Engineering & industry",
+    title: "Make complex capability easy to trust.",
+    summary: "Present your services, process and expertise with the clarity serious buyers need to start a conversation.",
+    image: seabluehillsCover,
+    projectSlug: "sea-blue-hills",
+    audience: "Engineering, procurement and industrial businesses",
+    needs: ["A clear picture of what your team does", "Service and project information that is easy to navigate", "A credible route from first visit to direct enquiry"],
+  },
+  {
+    slug: "leadership-communities",
+    name: "Leadership communities",
+    title: "Help the right people find their place.",
+    summary: "Bring your mission, programmes and membership journey together in a welcoming, useful online home.",
+    image: willnetCover,
+    projectSlug: "willnet",
+    audience: "Membership networks, leadership programmes and communities",
+    needs: ["A mission and audience story that feels human", "Clear paths into programmes and membership", "A thoughtful experience across phones and desktops"],
+  },
+] as const;
+
+export const studioArticles = [
+  {
+    slug: "a-clear-scope-builds-better-software",
+    series: "Studio note / 01",
+    title: "A clear scope is a kindness to the work.",
+    summary: "Good software starts before the first screen is designed. It starts by deciding what the work is for.",
+    sections: [
+      ["Start with the decision, not the feature list", "Teams often arrive with a long list of features. Before estimating that list, agree on the decision the product should help someone make, the task it should make easier, or the change the business needs to see. That gives every later choice a useful test."],
+      ["Separate essentials from possibilities", "A strong first scope distinguishes what must be there for the experience to work from what might be valuable later. This is not about doing less carelessly. It is about protecting the core journey from ideas that have not earned their place yet."],
+      ["Make boundaries visible", "Pages, integrations, content, approvals and handover all take time. Naming them early helps everyone understand what is included, where a decision is still open, and what could change the timeline or investment."],
+      ["Keep the scope useful", "A scope should guide the work without pretending nothing will change. Regular check-ins let the team adjust when new information appears, while a clear record keeps those changes deliberate rather than accidental."],
+    ],
+  },
+  {
+    slug: "the-useful-first-release",
+    series: "Studio note / 02",
+    title: "Build the first release around a real task.",
+    summary: "A useful first release gives a real person a complete path through one important job—not a collection of half-finished screens.",
+    sections: [
+      ["Choose one meaningful journey", "The best starting point is usually a task with a clear beginning and end: understand an offer and enquire, find an event and register, or review information and make a decision. A complete journey reveals more than a broad menu of disconnected features."],
+      ["Design the edges as well as the centre", "Empty states, errors, small screens and handovers are part of the product. Thinking through them early makes the first release feel dependable instead of like a demo that only works in ideal conditions."],
+      ["Leave room for the next decision", "A first release should make learning possible. Keep the underlying structure understandable, make the important actions visible, and agree what evidence will help decide what comes next."],
+      ["Finish means ready to use", "Content, device checks, accessibility basics, deployment and a clear handover all belong to a release. The goal is not simply to merge the last change; it is to give people something they can confidently use."],
+    ],
+  },
+  {
+    slug: "a-website-is-part-of-the-service",
+    series: "Studio note / 03",
+    title: "Your website is part of the service you deliver.",
+    summary: "Before a conversation begins, your site is already helping people decide what to expect from working with you.",
+    sections: [
+      ["Answer the visitor's first questions", "People want to know what you do, who it is for and what they can do next. Clear language and a sensible page structure are service decisions: they save visitors effort before anyone speaks to them."],
+      ["Make proof easy to understand", "A project image is more useful when its context is clear. Explain the challenge, the work and the decisions behind it, and distinguish published client work from concepts. Specific, honest context earns more confidence than an inflated claim."],
+      ["Treat mobile as the main experience too", "A phone visit should not feel like a smaller version that lost its content. Keep headings readable, actions easy to reach and important information in a natural order."],
+      ["Keep the next step uncomplicated", "When someone is ready, make the route obvious: a short enquiry, a direct email or a conversation. A clear next step closes the gap between a good first impression and a useful discussion."],
+    ],
+  },
+] as const;
+
 export type LivePreview = { domain: string; desktop: string; mobile: string };
 export type Project = {
   slug: string; name: string; type: string; text: string; tags: readonly string[]; image: string;
@@ -150,32 +225,11 @@ export const projects: readonly Project[] = [
 export const projectBySlug = (slug: string) => projects.find((project) => project.slug === slug);
 export const liveProjects = projects.filter((project) => project.live);
 
-export const studioStats: readonly { value: number; suffix: string; label: string }[] = [
-  { value: liveProjects.length, suffix: "", label: "Live client launches" },
-  { value: 2, suffix: "", label: "Countries served" },
-  { value: 3, suffix: "", label: "Core disciplines" },
-  { value: 15, suffix: "+", label: "Technologies in our stack" },
-];
-
-export const testimonials: readonly { quote: string; name: string; role: string; company: string }[] = [
-  {
-    quote: "Noveltiq rebuilt our storefront end to end. Checkout went from four confusing steps to one clean flow, and we started receiving orders from customers we'd never reached before.",
-    name: "Amara Okafor",
-    role: "Founder",
-    company: "Lagos-based fashion label",
-  },
-  {
-    quote: "They took a workflow we were running in spreadsheets and turned it into a tool our whole team actually enjoys using. Clear communication from the first call to launch day.",
-    name: "Daniel Whitmore",
-    role: "Operations Lead",
-    company: "UK logistics firm",
-  },
-  {
-    quote: "What stood out was the honesty. We were told exactly what we needed — and just as importantly, what we didn't. The site launched on time and it still feels fast a year later.",
-    name: "Priya Raman",
-    role: "Managing Director",
-    company: "Consulting agency",
-  },
+export const studioProof: readonly { label: string; detail: string }[] = [
+  { label: "Independent studio", detail: "Remote-first since 2023" },
+  { label: "Client work", detail: "Canada · Nigeria · worldwide" },
+  { label: "From strategy to launch", detail: "One accountable team" },
+  { label: "Built for the work", detail: "Web · software · cloud" },
 ];
 
 export const navLinks = [

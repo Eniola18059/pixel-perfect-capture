@@ -11,3 +11,9 @@
 - [x] Homepage extras: animated studio stats, hero cursor glow and magnetic buttons.
 - [x] Rewrite About around the team instead of one named person.
 - [ ] Booking link for scheduling calls — blocked: needs the studio's booking page URL.
+- [ ] Add an interactive project estimate using published starting prices and WhatsApp handoff.
+- [ ] Add a site-wide WhatsApp contact shortcut and a call-request fallback without a supplied booking URL.
+- [ ] Expand verified live case studies with desktop/mobile previews and a clear project process timeline.
+- [ ] Add dedicated industry pages for events, engineering and leadership communities.
+- [ ] Replace placeholder build-log entries with useful editorial articles and individual reading pages.
+- [ ] Replace the small launch-count statistic with verified credibility signals rather than invented totals.
