@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Braces, Cloud, Code2, Database, Figma, Globe2, Layers, Pause, Play, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { projects, studioStats } from "@/lib/noveltiq";
+import { projects, studioProof } from "@/lib/noveltiq";
 import studioImage from "@/assets/noveltiq-studio.jpg";
 import heroVideo from "@/assets/noveltiq-hero.mp4";
 import heroWebm from "@/assets/noveltiq-hero.webm";
@@ -124,35 +124,11 @@ export function HeroPointer() {
 
 /** Studio numbers that count up the first time they scroll into view. */
 export function StudioStats() {
-  return <section className="border-b border-border py-14 md:py-16" aria-label="Noveltiq in numbers">
+  return <section className="border-b border-border py-14 md:py-16" aria-label="About Noveltiq">
     <div className="shell grid grid-cols-2 gap-px border border-border bg-border md:grid-cols-4">
-      {studioStats.map((stat) => <div key={stat.label} className="bg-background p-6 md:p-8"><p className="text-4xl font-semibold text-foreground md:text-5xl"><CountUp value={stat.value} /><span className="text-primary">{stat.suffix}</span></p><p className="mt-3 font-mono text-[10px] uppercase text-muted-foreground">{stat.label}</p></div>)}
+      {studioProof.map((item) => <div key={item.label} className="bg-background p-6 md:p-8"><p className="font-mono text-[10px] uppercase text-primary">{item.label}</p><p className="mt-4 text-lg font-semibold leading-6 text-foreground">{item.detail}</p></div>)}
     </div>
   </section>;
-}
-
-function CountUp({ value }: { value: number }) {
-  const node = useRef<HTMLSpanElement>(null);
-  const [shown, setShown] = useState(value);
-  useEffect(() => {
-    const element = node.current;
-    if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let frame = 0;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry?.isIntersecting) return;
-      observer.disconnect();
-      const start = performance.now();
-      const tick = (now: number) => {
-        const progress = Math.min((now - start) / 1400, 1);
-        setShown(Math.round((1 - Math.pow(1 - progress, 3)) * value));
-        if (progress < 1) frame = requestAnimationFrame(tick);
-      };
-      setShown(0); frame = requestAnimationFrame(tick);
-    }, { threshold: 0.6 });
-    observer.observe(element);
-    return () => { observer.disconnect(); cancelAnimationFrame(frame); };
-  }, [value]);
-  return <span ref={node} className="tabular-nums">{shown}</span>;
 }
 
 const stack = [

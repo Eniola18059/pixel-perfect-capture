@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, ChevronDown, Code2, Cloud, Globe2, MoveUpRight, Terminal, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { faqs, projects, services, testimonials, type Project } from "@/lib/noveltiq";
+import { faqs, projects, services, studioProof, type Project } from "@/lib/noveltiq";
 
 export function pageMeta(title: string, description: string) {
   return { meta: [
@@ -53,8 +53,8 @@ export function Steps() {
   return <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">{items.map(([title, text], i) => <article key={title} className="bg-background p-6"><p className="font-mono text-xs text-primary">0{i + 1} / PROCESS</p><h3 className="mt-8 font-semibold text-foreground">{title}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}</div>;
 }
 
-export function PlaceholderQuotes() {
-  return <div className="grid gap-4 md:grid-cols-3">{testimonials.map((testimonial) => <blockquote key={testimonial.name} className="flex flex-col border border-border bg-card/40 p-6 transition-colors hover:border-primary/40"><p className="font-mono text-[10px] text-primary">CLIENT TESTIMONIAL / SAMPLE</p><p className="mt-7 flex-1 text-sm leading-6 text-muted-foreground">“{testimonial.quote}”</p><footer className="mt-6 border-t border-border pt-4 text-sm text-foreground">{testimonial.name}<span className="block pt-1 text-xs text-muted-foreground">{testimonial.role}, {testimonial.company}</span></footer></blockquote>)}</div>;
+export function StudioProofPoints() {
+  return <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">{studioProof.map((item, index) => <article key={item.label} className="bg-background p-6 md:p-7"><p className="font-mono text-xs text-primary">0{index + 1} / NOVELTIQ</p><h3 className="mt-7 font-semibold text-foreground">{item.label}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{item.detail}</p></article>)}</div>;
 }
 
 export function BuildLog({ compact = false }: { compact?: boolean }) {
