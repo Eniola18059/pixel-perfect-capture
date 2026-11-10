@@ -227,7 +227,7 @@ export const liveProjects = projects.filter((project) => project.live);
 
 export const studioProof: readonly { label: string; detail: string }[] = [
   { label: "Independent studio", detail: "Remote-first since 2023" },
-  { label: "Client work", detail: "Canada · Nigeria · worldwide" },
+  { label: "Client work", detail: "USA · UK · Canada · Nigeria · beyond" },
   { label: "From strategy to launch", detail: "One accountable team" },
   { label: "Built for the work", detail: "Web · software · cloud" },
 ];
