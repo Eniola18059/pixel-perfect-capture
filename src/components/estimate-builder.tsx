@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { estimateAddOnNames, estimateBaseNames, pricing } from "@/lib/noveltiq";
+import { estimateAddOnNames, estimateBaseNames, mailto, pricing, whatsappNumber } from "@/lib/noveltiq";
 
 const addOnPricing = estimateAddOnNames.map((name) => {
   const item = pricing.find(([itemName]) => itemName === name);
@@ -36,7 +36,7 @@ export function EstimateBuilder() {
   };
 
   const message = `Hi Noveltiq, I'd like to discuss a project.\n\nProject type: ${base}\nAdditional needs: ${selectedAddOns.length ? selectedAddOns.join(", ") : "None selected"}\nIndicative starting estimate: ${estimate === null ? "Custom scope" : formatPrice(estimate)}\n\nI understand the final quote depends on the agreed scope.`;
-  const whatsappUrl = `https://wa.me/2349066420706?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return <div className="grid gap-12 lg:grid-cols-[1fr_.8fr] lg:items-start">
     <div className="space-y-10">
@@ -82,7 +82,7 @@ export function EstimateBuilder() {
       <Button asChild className="mt-8 h-12 w-full justify-between rounded-sm px-5">
         <a href={whatsappUrl} target="_blank" rel="noreferrer">Discuss this estimate <ArrowUpRight /></a>
       </Button>
-      <a className="mt-4 block text-center text-sm text-muted-foreground hover:text-foreground" href="mailto:noveltiqhq@gmail.com?subject=Project%20estimate">Email us instead ↗</a>
+      <a className="mt-4 block text-center text-sm text-muted-foreground hover:text-foreground" href={mailto("Project estimate", message)}>Email us instead ↗</a>
       <p className="mt-5 font-mono text-[10px] leading-5 text-muted-foreground">Planning guide only · Not a fixed quote</p>
     </aside>
   </div>;

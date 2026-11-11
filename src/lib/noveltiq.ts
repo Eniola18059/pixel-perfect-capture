@@ -20,6 +20,12 @@ import seabluehillsMobile from "@/assets/live/seabluehills-mobile.jpg";
 
 export const trainingImage = trainingDeskImage;
 
+export const contactEmail = "info@noveltiqhq.com.ng";
+export const whatsappNumber = "2349066420706";
+
+export const mailto = (subject: string, body = "") =>
+  `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}${body ? `&body=${encodeURIComponent(body)}` : ""}`;
+
 export const services = [
   {
     number: "01",
